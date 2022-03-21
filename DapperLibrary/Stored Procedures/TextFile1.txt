@@ -1,0 +1,52 @@
+﻿
+
+USE Opleidingen
+GO
+
+Create Proc [dbo].[spGetAllCampussen]
+AS
+Begin
+ select Naam from Campussen
+End
+GO
+
+__________________________________________________
+
+USE [Opleidingen]
+GO
+
+Create Proc spGetAllDocenten
+AS
+Begin
+select Voornaam, Familienaam from Docenten
+End
+GO
+
+_____________________________________________
+
+CREATE Proc [dbo].[AddNewDocent]
+@DocentNr int,
+@Voornaam nvarchar(50),
+@Familienaam nvarchar(50),
+@Wedde money,
+@CampusNr int
+
+as
+Begin
+  insert into Docenten(DocentNr, Voornaam, Familienaam, Wedde , CampusNr)
+  values(@DocentNr, @Voornaam, @Familienaam, @Wedde, @CampusNr)
+End
+GO
+
+__________________________
+USE [Opleidingen]
+GO
+
+Create Proc spGetDetailsDocenten
+AS
+Begin
+select Voornaam, Familienaam, Wedde from Docenten
+End
+GO
+
+_______________________________
